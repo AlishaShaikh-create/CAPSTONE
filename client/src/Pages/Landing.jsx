@@ -1,29 +1,8 @@
-// import { Link } from "react-router-dom";
-
-// function Landing() {
-//   return (
-//     <>
-//       <div className="w-full bg-black p-4 flex gap-4">
-//         <Link to="/register" className="bg-blue-500 text-white px-4 py-2 rounded">
-//           Register
-//         </Link>
-//         <Link to="/signin" className="text-white px-4 py-2 rounded border border-white">
-//           Sign in
-//         </Link>
-
-//          <Link to="/home" className="text-white px-4 py-2 rounded border border-white">
-//           Home
-//         </Link>
-//       </div>
-//     </>
-//   );
-// }
-
-// export default Landing;
 
 
 import React from 'react'
 import '../Styles/Landing.css'
+import { Link } from 'react-router-dom'
 const Landing = () => {
 
 
@@ -40,20 +19,25 @@ const Landing = () => {
             Connect with passionate learners and expert teachers in your community. 
             Share your skills, learn new ones, and build meaningful connections through knowledge exchange.
           </p>
-          <button 
+       
+          
+          {/* <button 
             data-testid="get-started-btn"
             className="btn-primary" 
-            
           >
             Get Started Today
-          </button>
+          </button>  */}
+     
+     <Link to="login"   data-testid="get-started-btn"
+            className="btn-primary" > Get Started Today</Link>
+
         </div>
       </section>
 
   
       <section className="features-section">
         <div className="features-container">
-          <h2 className="features-title">How SkillShare Works</h2>
+          <h2 className="features-title">How TeachMe works</h2>
           
           <div className="features-grid">
             <div className="feature-card">
@@ -148,13 +132,17 @@ const Landing = () => {
           <p className="hero-subtitle">
             Join thousands of learners and teachers already sharing knowledge
           </p>
-          <button 
+          {/* <button 
             data-testid="join-now-btn"
             className="btn-primary" 
             
           >
             Join SkillShare Now
-          </button>
+          </button> */}
+    
+     <Link to="login"   data-testid="get-started-btn"
+            className="btn-primary" > TechMe Now</Link>
+
         </div>
       </section>
     </div>
