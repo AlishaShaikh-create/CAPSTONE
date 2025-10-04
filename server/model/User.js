@@ -25,13 +25,8 @@ const registerSchema = new mongoose.Schema({
         type:String
     },
 
-  teach:{
-    type:String
-  },
-  learn:{
-    type:String
-    
-  }
+   teach: { type: [String], default: [] },
+  learn: { type: [String], default: [] }
 
 });
 
