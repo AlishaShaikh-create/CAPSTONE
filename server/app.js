@@ -332,6 +332,7 @@ const PORT = 5000;
 app.get("/", (req, res) => {
   res.send("The server is running");
 });
+
 //Register route
 app.post("/register", async (req, res) => {
   try {
@@ -371,41 +372,42 @@ app.post("/search", async (req, res) => {
   }
 });
 
-app.post("/connect", async (req, res) => {
-  try {
-    const { userId, connectWithId } = req.body;
+//Chatgpt code :
+// app.post("/connect", async (req, res) => {
+//   try {
+//     const { userId, connectWithId } = req.body;
 
-    const user = await registerModel.findById(userId);
-    const connectUser = await registerModel.findById(connectWithId);
+//     const user = await registerModel.findById(userId);
+//     const connectUser = await registerModel.findById(connectWithId);
 
-    if (!user || !connectUser) {
-      return res.status(404).json({ error: "User not found" });
-    }
+//     if (!user || !connectUser) {
+//       return res.status(404).json({ error: "User not found" });
+//     }
 
-    if (!user.connections) user.connections = [];
-    if (!user.connections.includes(connectWithId)) {
-      user.connections.push(connectWithId);
-      await user.save();
-    }
+//     if (!user.connections) user.connections = [];
+//     if (!user.connections.includes(connectWithId)) {
+//       user.connections.push(connectWithId);
+//       await user.save();
+//     }
 
-    res.json({ status: "Connected successfully", connectedUser: connectUser });
-  } catch (error) {
-    console.error(error);
-    res.status(500).json({ error: "Something went wrong" });
-  }
-});
+//     res.json({ status: "Connected successfully", connectedUser: connectUser });
+//   } catch (error) {
+//     console.error(error);
+//     res.status(500).json({ error: "Something went wrong" });
+//   }
+// });
 
-app.get("/connections/:userId", async (req, res) => {
-  try {
-    const { userId } = req.params;
-    const user = await registerModel.findById(userId).populate("connections");
-    if (!user) return res.status(404).json({ error: "User not found" });
-    res.json(user.connections || []);
-  } catch (error) {
-    console.error(error);
-    res.status(500).json({ error: "Something went wrong" });
-  }
-});
+// app.get("/connections/:userId", async (req, res) => {
+//   try {
+//     const { userId } = req.params;
+//     const user = await registerModel.findById(userId).populate("connections");
+//     if (!user) return res.status(404).json({ error: "User not found" });
+//     res.json(user.connections || []);
+//   } catch (error) {
+//     console.error(error);
+//     res.status(500).json({ error: "Something went wrong" });
+//   }
+// });
 
 app.listen(PORT, () => {
   console.log(`The app is listening on port ${PORT}`);
