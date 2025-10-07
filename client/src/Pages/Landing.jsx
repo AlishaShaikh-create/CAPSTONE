@@ -1,16 +1,13 @@
 
-
 import React from 'react'
 import '../Styles/Landing.css'
 import { Link } from 'react-router-dom'
 const Landing = () => {
-
-
   return (
+    // Frontend code 
     <>
     <div>
-        <div className="landing-page">
-   
+      <div className="landing-page">
       <section className="landing-hero">
         <div className="hero-content">
           <h1 className="hero-title">Learn. Teach. Connect.</h1>
@@ -27,8 +24,9 @@ const Landing = () => {
           >
             Get Started Today
           </button>  */}
-     
-          <Link to="login"   data-testid="get-started-btn"
+
+
+          <Link to="register"  data-testid="get-started-btn"
             className="btn-primary" > Get Started Today</Link>
 
         </div>
@@ -140,7 +138,7 @@ const Landing = () => {
             Join SkillShare Now
           </button> */}
     
-     <Link to="login"   data-testid="get-started-btn"
+            <Link to="register"   data-testid="get-started-btn"
             className="btn-primary" > TechMe Now</Link>
 
         </div>

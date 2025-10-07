@@ -28,13 +28,13 @@ const registerSchema = new mongoose.Schema({
    teach: { type: [String], default: [] },
   learn: { type: [String], default: [] },
 
-    //   connections: { type: [{ type: mongoose.Schema.Types.ObjectId, ref: 'RegisterForm' }], default: [] }
-    connections: [
-  {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: "RegisterForm",  // must match your model name
-  },
-],
+//     //   connections: { type: [{ type: mongoose.Schema.Types.ObjectId, ref: 'RegisterForm' }], default: [] }
+//     connections: [
+//   {
+//     type: mongoose.Schema.Types.ObjectId,
+//     ref: "RegisterForm",  // must match your model name
+//   },
+// ],
 
 });
 

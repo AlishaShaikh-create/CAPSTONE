@@ -16,6 +16,7 @@ const Register = () => {
     learn:""
   });
 
+// On change handler
 const onChangeHandler = (e) =>{
   try{
     console.log(e.target.name , e.target.value);
@@ -26,24 +27,24 @@ const onChangeHandler = (e) =>{
 
   }catch(error)
   {
-
     console.log(error);
   }
 }  
 
+// after submitting the form data
 const onSubmitHandler =  async(e) =>{
 try
 {
   e.preventDefault();
-  console.log(registerFormData)
+  console.log(registerFormData);
+  // This code is if the form data does not match
   if(registerFormData.password!=registerFormData.passwordRepeat)
   {
     console.log("Password do not match");
   }
   else{
     const {data} =  await axios.post("http://localhost:5000/register",registerFormData)
-     
-      console.log(data);
+     console.log(data);
     console.log("data send");
   }
 }catch(error)
@@ -53,9 +54,7 @@ try
 
 }
 
-
-
-
+// Frontend code
   return (
     <div className="register-bw">
       <form className="register-form" onSubmit={onSubmitHandler}>
@@ -70,8 +69,6 @@ try
     
         <label htmlFor="phone">Phone</label>
         <input type="tel" id="phone" placeholder="Enter your Phone number" name="phone"required onChange={onChangeHandler} />
-
-
 
         <label htmlFor="password">Password</label>
         <input type="password" id="password" placeholder="Enter your password" name="password" required onChange={onChangeHandler}/>

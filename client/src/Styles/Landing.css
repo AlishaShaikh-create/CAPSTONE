@@ -1,4 +1,4 @@
-/* Modern black-and-white theme with an accent color for the Landing page */
+Modern black-and-white theme with an accent color for the Landing page
 :root {
   --accent: #4c8bf5;         /* Accent color. Try #ff6b6b, #22c55e, #a855f7, #f59e0b */
   --accent-1: #4c8bf5;       /* Sky Blue */
@@ -205,3 +205,6 @@
   .hero-description { padding: 0 6px; }
   .btn-primary { width: 100%; }
 }
+
+
+
