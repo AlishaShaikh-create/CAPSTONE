@@ -9,6 +9,9 @@ import registerModel from "./model/User.js";
 // importing the connect user database
 import ConnectUser from "./model/ConnectUser.js";
 
+import Message from "./model/Message.js";
+
+
 
 const app = express();
 app.use(express.json());
@@ -174,9 +177,41 @@ app.delete("/connections/:fromUserId/:toUserId", async (req, res) => {
   }
 });
 
+// New message routes
+app.get("/messages/:fromUserId/:toUserId", async (req, res) => {
+  try {
+    const { fromUserId, toUserId } = req.params;
+    const messages = await Message.find({
+      $or: [
+        { fromUserId, toUserId },
+        { fromUserId: toUserId, toUserId: fromUserId }
+      ]
+    }).sort({ createdAt: 1 });
+    res.json(messages);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: "Something went wrong while fetching messages" });
+  }
+});
+
+app.post("/messages", async (req, res) => {
+  try {
+    const { fromUserId, toUserId, content } = req.body;
+    if (!fromUserId || !toUserId || !content) {
+      return res.status(400).json({ error: "Missing required fields" });
+    }
+    const message = new Message({ fromUserId, toUserId, content });
+    await message.save();
+    res.json(message);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: "Something went wrong while sending message" });
+  }
+});
+
+
 app.listen(PORT, () => {
   console.log(`The app is listening on port ${PORT}`);
 });
-
 
 

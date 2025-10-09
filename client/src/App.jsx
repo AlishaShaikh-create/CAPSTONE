@@ -20,6 +20,9 @@ function App() {
           <Route index element={<h2>Welcome to your Dashboard 🏠</h2>} />
           <Route path="search" element={<SearchUsers />} />
           <Route path="connections" element={<Connections />} />
+
+          {/* connection routes */}
+          
         </Route>
       </Routes>
     </Router>
