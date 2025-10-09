@@ -36,6 +36,7 @@ const registerSchema = new mongoose.Schema({
 //   },
 // ],
 
+
 });
 
 const registerModel = mongoose.model("RegisterForm", registerSchema, "user-registration");

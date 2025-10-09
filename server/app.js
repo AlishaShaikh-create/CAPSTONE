@@ -2,8 +2,12 @@ import express from "express";
 import cors from "cors";
 //DB connection
 import "./dbConnect.js";
-//model database
+//model registration database
 import registerModel from "./model/User.js";
+
+
+// importing the connect user database
+import ConnectUser from "./model/ConnectUser.js";
 
 
 const app = express();
@@ -62,57 +66,117 @@ app.post("/search", async (req, res) => {
   }
 });
 
-//Connect with the user
-app.get("/connections/:userId", async (req, res) => {
-  const { userId } = req.params;
-  const userConnections = await Connection.find({
-    $or: [{ fromUserId: userId }, { toUserId: userId }],
-  }).populate("fromUserId toUserId");
-
-  // Extract connected users (excluding self)
-  const connectedUsers = userConnections.map((conn) =>
-    conn.fromUserId._id.toString() === userId ? conn.toUserId : conn.fromUserId
-  );
-
-  res.json(connectedUsers);
-});
-// Chatgpt code :
-// app.post("/connect", async (req, res) => {
-//   try {
-//     const { userId, connectWithId } = req.body;
-
-//     const user = await registerModel.findById(userId);
-//     const connectUser = await registerModel.findById(connectWithId);
-
-//     if (!user || !connectUser) {
-//       return res.status(404).json({ error: "User not found" });
-//     }
-
-//     if (!user.connections) user.connections = [];
-//     if (!user.connections.includes(connectWithId)) {
-//       user.connections.push(connectWithId);
-//       await user.save();
-//     }
-
-//     res.json({ status: "Connected successfully", connectedUser: connectUser });
-//   } catch (error) {
-//     console.error(error);
-//     res.status(500).json({ error: "Something went wrong" });
-//   }
-// });
-
+// //Connect with the user
 // app.get("/connections/:userId", async (req, res) => {
-//   try {
-//     const { userId } = req.params;
-//     const user = await registerModel.findById(userId).populate("connections");
-//     if (!user) return res.status(404).json({ error: "User not found" });
-//     res.json(user.connections || []);
-//   } catch (error) {
-//     console.error(error);
-//     res.status(500).json({ error: "Something went wrong" });
-//   }
+//   const { userId } = req.params;
+//   const userConnections = await Connection.find({
+//     $or: [{ fromUserId: userId }, { toUserId: userId }],
+//   }).populate("fromUserId toUserId");
+
+//   // Extract connected users (excluding self)
+//   const connectedUsers = userConnections.map((conn) =>
+//     conn.fromUserId._id.toString() === userId ? conn.toUserId : conn.fromUserId
+//   );
+
+//   res.json(connectedUsers);
 // });
+
+
+// Building the connect feature:
+
+
+
+
+// Connect two users
+// POST /connect
+app.post("/connect", async (req, res) => {
+  try {
+    const { fromUserId, toUserId } = req.body;
+
+    if (!fromUserId || !toUserId)
+      return res.status(400).json({ error: "Both user IDs are required" });
+
+    // Prevent duplicate connections
+    const existing = await ConnectUser.findOne({
+      $or: [
+        { fromUserId, toUserId },
+        { fromUserId: toUserId, toUserId: fromUserId },
+      ],
+    });
+
+    if (existing)
+      return res.status(400).json({ error: "You are already connected!" });
+
+    const newConnection = new ConnectUser({ fromUserId, toUserId });
+    await newConnection.save();
+
+    res.json({ message: "Connection created successfully", newConnection });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: "Something went wrong while connecting" });
+  }
+});
+
+
+// Get all connections for a user
+// GET /connections/:userId
+app.get("/connections/:userId", async (req, res) => {
+  try {
+    const { userId } = req.params;
+
+    const connections = await ConnectUser.find({
+      $or: [{ fromUserId: userId }, { toUserId: userId }],
+    }).populate("fromUserId toUserId");
+
+    // Extract the connected users (exclude self)
+    const connectedUsers = connections.map(conn =>
+      conn.fromUserId._id.toString() === userId ? conn.toUserId : conn.fromUserId
+    );
+
+    res.json(connectedUsers);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: "Something went wrong while fetching connections" });
+  }
+});
+
+
+// New route to fetch user details
+app.get("/user/:userId", async (req, res) => {
+  try {
+    const { userId } = req.params;
+    const user = await registerModel.findById(userId).select("name teach learn location about");
+    if (!user) return res.status(404).json({ error: "User not found" });
+    res.json(user);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: "Something went wrong" });
+  }
+});
+
+
+app.delete("/connections/:fromUserId/:toUserId", async (req, res) => {
+  try {
+    const { fromUserId, toUserId } = req.params;
+    const connection = await ConnectUser.findOneAndDelete({
+      $or: [
+        { fromUserId, toUserId },
+        { fromUserId: toUserId, toUserId: fromUserId }
+      ]
+    });
+    if (!connection) {
+      return res.status(404).json({ error: "Connection not found" });
+    }
+    res.json({ message: "Disconnected successfully" });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: "Something went wrong while disconnecting" });
+  }
+});
 
 app.listen(PORT, () => {
   console.log(`The app is listening on port ${PORT}`);
 });
+
+
+
