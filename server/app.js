@@ -51,9 +51,6 @@ app.post("/register", async (req, res) => {
 //   }
 // });
 
-
-
-
 //searching user based on their skills
 
 app.post("/search", async (req, res) => {
@@ -86,8 +83,6 @@ app.post("/search", async (req, res) => {
 
 
 // Building the connect feature:
-
-
 
 
 // Connect two users
@@ -208,7 +203,6 @@ app.post("/messages", async (req, res) => {
     res.status(500).json({ error: "Something went wrong while sending message" });
   }
 });
-
 
 app.listen(PORT, () => {
   console.log(`The app is listening on port ${PORT}`);
