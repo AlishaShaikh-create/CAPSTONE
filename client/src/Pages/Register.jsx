@@ -1,8 +1,13 @@
 import React ,{useState} from 'react';
 import '../Styles/Register.css';
 import axios from 'axios'
+// Alert component
+import Alert from '../Components/Alert.jsx';
+import {Link} from 'react-router-dom'
 
-const Register = () => {
+
+
+const Register = ({alert,showAlert}) => {
   
   const [registerFormData , setRegisterFormData] = useState({
     name:"",
@@ -37,14 +42,22 @@ try
 {
   e.preventDefault();
   console.log(registerFormData);
-  // This code is if the form data does not match
+  // This code is if the form passwords does not match
   if(registerFormData.password!=registerFormData.passwordRepeat)
   {
-    console.log("Password do not match");
+    // console.log("Password do not match");
+     showAlert({
+                  type: 'danger',
+                  msg: 'password does not match'
+                })
   }
   else{
     const {data} =  await axios.post("http://localhost:5000/register",registerFormData)
-     console.log(data);
+    //  console.log(data);
+      showAlert({
+                  type: 'success',
+                  msg: 'User Registered'
+                })
     console.log("data send");
   }
 }catch(error)
@@ -57,6 +70,7 @@ try
 // Frontend code
   return (
     <div className="register-bw">
+      <Alert alert={alert}/>
       <form className="register-form" onSubmit={onSubmitHandler}>
         <h2>Create Your Account</h2>
 
@@ -90,6 +104,7 @@ try
         
 
         <button type="submit" className="bw-btn">Register</button>
+        {/* <Link  to ='/login'className="bw-btn">Register</Link> */}
       </form>
     </div>
   );
