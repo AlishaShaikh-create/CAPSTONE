@@ -1,5 +1,8 @@
 import express from "express";
 import cors from "cors";
+
+import bcrypt from 'bcrypt';
+
 //DB connection
 import "./dbConnect.js";
 //model registration database
