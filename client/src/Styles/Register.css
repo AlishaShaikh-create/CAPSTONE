@@ -1,134 +1,96 @@
-:root {
-  --accent: #4c8bf5;       /* Accent color (electric blue). Try #ff6b6b, #22c55e, #a855f7, or #f59e0b */
-  --bg: #0e0f12;           /* Page background */
-  --card: #14161b;         /* Card background */
-  --text: #eaecef;         /* Primary text */
-  --muted: #9aa3af;        /* Muted text */
-  --input-bg: #0f1115;     /* Input background */
-  --border: #2a2f37;       /* Borders */
-  --ring: rgba(76, 139, 245, 0.45);
-}
-
+/* General page background */
 .register-bw {
-  min-height: 100dvh;
-  display: grid;
-  place-items: center;
-  padding: 40px 16px;
-  background:
-    radial-gradient(1200px 600px at 10% -10%, rgba(255,255,255,0.06), transparent 60%),
-    radial-gradient(1000px 600px at 110% 10%, rgba(255,255,255,0.04), transparent 60%),
-    linear-gradient(180deg, #0b0c10, var(--bg));
-  color: var(--text);
-  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #121212;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #f1f1f1;
 }
 
+/* Form container */
 .register-form {
+  background-color: #1e1e1e;
+  padding: 2rem 3rem;
+  border-radius: 12px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.5);
   width: 100%;
-  max-width: 520px;
-  padding: 28px;
-  border-radius: 16px;
-  background: color-mix(in oklab, var(--card) 92%, black);
-  border: 1px solid var(--border);
-  box-shadow:
-    0 10px 30px rgba(0,0,0,0.35),
-    0 1px 0 rgba(255,255,255,0.03) inset;
-  backdrop-filter: blur(6px);
+  max-width: 450px;
 }
 
+/* Form title */
 .register-form h2 {
-  margin: 0 0 18px;
-  font-size: 28px;
-  letter-spacing: 0.2px;
-  line-height: 1.2;
+  text-align: center;
+  margin-bottom: 1.5rem;
+  color: #ffffff;
 }
 
+/* Labels */
 .register-form label {
   display: block;
-  margin: 14px 0 8px;
-  font-size: 13px;
-  letter-spacing: 0.3px;
-  color: var(--muted);
+  margin-top: 1rem;
+  margin-bottom: 0.3rem;
+  font-weight: 500;
 }
 
+/* Input fields & textarea */
 .register-form input,
 .register-form textarea {
   width: 100%;
-  padding: 12px 14px;
-  border-radius: 10px;
-  border: 1px solid var(--border);
-  background: var(--input-bg);
-  color: var(--text);
+  padding: 0.7rem 0.8rem;
+  border: 1px solid #333;
+  border-radius: 8px;
+  background-color: #2b2b2b;
+  color: #f1f1f1;
   outline: none;
-  transition: border-color 160ms ease, box-shadow 160ms ease, transform 120ms ease;
-}
-
-.register-form textarea {
-  min-height: 110px;
-  resize: vertical;
-}
-
-.register-form input::placeholder,
-.register-form textarea::placeholder {
-  color: #667085;
+  font-size: 0.95rem;
+  transition: border-color 0.3s;
 }
 
 .register-form input:focus,
 .register-form textarea:focus {
-  border-color: var(--accent);
-  box-shadow:
-    0 0 0 3px var(--ring),
-    0 8px 24px rgba(76, 139, 245, 0.15);
-  transform: translateY(-1px);
+  border-color: #4caf50; /* Highlight color on focus */
 }
 
+/* Textarea specific */
+.register-form textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+/* Button */
 .bw-btn {
-  margin-top: 18px;
+  margin-top: 1.5rem;
   width: 100%;
-  padding: 12px 16px;
-  border: 1px solid color-mix(in srgb, var(--accent) 70%, white 0%);
-  border-radius: 12px;
-  background:
-    linear-gradient(180deg, color-mix(in srgb, var(--accent) 22%, black), color-mix(in srgb, var(--accent) 12%, black));
-  color: white;
-  font-weight: 600;
-  letter-spacing: 0.3px;
+  padding: 0.8rem;
+  border: none;
+  border-radius: 8px;
+  background-color: #4caf50;
+  color: #ffffff;
+  font-weight: bold;
   cursor: pointer;
-  transition: transform 120ms ease, box-shadow 180ms ease, background 180ms ease, border-color 180ms ease;
-  box-shadow:
-    0 8px 20px rgba(76,139,245,0.25),
-    0 1px 0 rgba(255,255,255,0.06) inset;
+  transition: background-color 0.3s;
 }
 
 .bw-btn:hover {
-  transform: translateY(-2px);
-  box-shadow:
-    0 12px 26px rgba(76,139,245,0.30),
-    0 1px 0 rgba(255,255,255,0.08) inset;
+  background-color: #45a049;
 }
 
-.bw-btn:active {
-  transform: translateY(0);
-  box-shadow:
-    0 6px 16px rgba(76,139,245,0.24),
-    0 1px 0 rgba(255,255,255,0.06) inset;
+/* Alert box */
+.alert {
+  margin-bottom: 1rem;
+  padding: 0.8rem 1rem;
+  border-radius: 8px;
+  font-weight: 500;
 }
 
-@media (max-width: 480px) {
-  .register-form {
-    padding: 22px;
-    border-radius: 14px;
-  }
-  .register-form h2 {
-    font-size: 24px;
-    margin-bottom: 14px;
-  }
+.alert-success {
+  background-color: #2e7d32;
+  color: #dcedc8;
 }
 
-/* Subtle separator between groups (optional) */
-.register-form label[for="email"],
-.register-form label[for="password"],
-.register-form label[for="teach"] {
-  margin-top: 18px;
-  padding-top: 10px;
-  border-top: 1px dashed #1f2430;
+.alert-danger {
+  background-color: #c62828;
+  color: #ffebee;
 }

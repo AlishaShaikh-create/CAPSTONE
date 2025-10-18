@@ -15,6 +15,8 @@ function App() {
       setAlert(null);
     }, 5000);
   };
+
+
   return (
     <Router>
       <Routes>
@@ -36,7 +38,7 @@ function App() {
           <Route path="search" element={<SearchUsers />} />
           <Route path="connections" element={<Connections />} />
 
-          {/* connection routes */}
+
         </Route>
       </Routes>
     </Router>

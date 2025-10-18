@@ -1,4 +1,4 @@
-/* .alert-danger{
+.alert-danger{
     text-align: center;
     color: red;
 }
@@ -6,55 +6,5 @@
 .alert-success{
     text-align: center;
     color: green;
-} */
-
-/* Base alert style */
-.alert {
-  text-align: center;
-  padding: 14px 20px;
-  margin: 16px auto;
-  border-radius: 12px;
-  font-weight: 600;
-  font-size: 15px;
-  max-width: 420px;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
-  color: #fff;
-  backdrop-filter: blur(6px);
-  border: 1px solid transparent;
-  animation: fadeIn 0.4s ease-in-out;
-}
-
-/* Success alert (green) */
-.alert-success {
-  background: linear-gradient(
-    180deg,
-    color-mix(in srgb, #22c55e 20%, var(--card)),
-    color-mix(in srgb, #16a34a 15%, var(--card))
-  );
-  border-color: #16a34a;
-  box-shadow: 0 6px 20px rgba(34, 197, 94, 0.4);
-}
-
-/* Danger alert (red) */
-.alert-danger {
-  background: linear-gradient(
-    180deg,
-    color-mix(in srgb, #ef4444 20%, var(--card)),
-    color-mix(in srgb, #b91c1c 15%, var(--card))
-  );
-  border-color: #b91c1c;
-  box-shadow: 0 6px 20px rgba(239, 68, 68, 0.4);
-}
-
-/* Fade-in animation */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(-8px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
+} 
 

@@ -9,6 +9,7 @@ import registerModel from "./model/User.js";
 // importing the connect user database
 import ConnectUser from "./model/ConnectUser.js";
 
+
 import Message from "./model/Message.js";
 
 
@@ -65,25 +66,6 @@ app.post("/search", async (req, res) => {
     res.status(500).json({ error: "Something went wrong" });
   }
 });
-
-// //Connect with the user
-// app.get("/connections/:userId", async (req, res) => {
-//   const { userId } = req.params;
-//   const userConnections = await Connection.find({
-//     $or: [{ fromUserId: userId }, { toUserId: userId }],
-//   }).populate("fromUserId toUserId");
-
-//   // Extract connected users (excluding self)
-//   const connectedUsers = userConnections.map((conn) =>
-//     conn.fromUserId._id.toString() === userId ? conn.toUserId : conn.fromUserId
-//   );
-
-//   res.json(connectedUsers);
-// });
-
-
-// Building the connect feature:
-
 
 // Connect two users
 // POST /connect

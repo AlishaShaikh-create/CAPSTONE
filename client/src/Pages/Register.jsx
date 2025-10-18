@@ -42,6 +42,7 @@ try
 {
   e.preventDefault();
   console.log(registerFormData);
+  
   // This code is if the form passwords does not match
   if(registerFormData.password!=registerFormData.passwordRepeat)
   {

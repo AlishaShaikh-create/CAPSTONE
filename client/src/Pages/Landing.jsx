@@ -3,8 +3,12 @@ import React from 'react'
 import '../Styles/Landing.css'
 import { Link } from 'react-router-dom'
 const Landing = () => {
+
+
+
+
   return (
-    // Frontend code 
+ 
     <>
     <div>
       <div className="landing-page">
@@ -17,7 +21,8 @@ const Landing = () => {
             Share your skills, learn new ones, and build meaningful connections through knowledge exchange.
           </p>
        
-          
+          {/* Register button */}
+
           {/* <button 
             data-testid="get-started-btn"
             className="btn-primary" 
@@ -121,7 +126,7 @@ const Landing = () => {
         </div>
       </section>
 
-      {/* CTA Section */}
+     
       <section className="landing-hero" style={{ minHeight: '60vh' }}>
         <div className="hero-content">
           <h2 className="hero-title" style={{ fontSize: '3rem' }}>
