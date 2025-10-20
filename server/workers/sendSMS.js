@@ -1,6 +1,8 @@
 import twilio from 'twilio';
-const accountSid = SID
-const authToken = TOKEN 
+import dotenv from 'dotenv'
+dotenv.config();
+const accountSid =process.env.SID
+const authToken = process.env.TOKEN 
 const client = new twilio (accountSid , authToken);
 
 async function sendSMS(smsData){
