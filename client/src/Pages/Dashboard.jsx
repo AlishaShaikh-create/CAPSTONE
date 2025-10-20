@@ -9,9 +9,9 @@ const Dashboard = () => {
   const [activePage, setActivePage] = useState("home");
   const [stats, setStats] = useState({ connections: [], teach: [], learn: [] });
   const [expandedCard, setExpandedCard] = useState(null);
-  const currentUserId = "68e10910c669d9b33de88389"; // Replace with dynamic user ID in production
+   const currentUserId = "68e10910c669d9b33de88389"; // Replace with dynamic user ID in production
 
-  //use effect is used fo 
+ 
   useEffect(() => {
     if (!currentUserId) return;
     // Fetch user stats and details
@@ -28,6 +28,32 @@ const Dashboard = () => {
       })
       .catch((err) => console.error("Error fetching stats:", err));
   }, [currentUserId]);
+
+
+//   useEffect(() => {
+//     if (!currentUserId) {
+//         showAlert({ type: "danger", msg: "Please log in to access the dashboard" });
+//         navigate("/login");
+//         return;
+//     }
+//     Promise.all([
+//         axios.get(`http://localhost:5000/connections/${currentUserId}`),
+//         axios.get(`http://localhost:5000/user/${currentUserId}`)
+//     ])
+//         .then(([connectionsRes, userRes]) => {
+//             setStats({
+//                 connections: connectionsRes.data,
+//                 teach: userRes.data.data?.teach || [],
+//                 learn: userRes.data.data?.learn || []
+//             });
+//         })
+//         .catch((err) => {
+//             showAlert({
+//                 type: "danger",
+//                 msg: err.response?.data?.error || "Failed to fetch stats",
+//             });
+//         });
+// }, [currentUserId, showAlert, navigate]);
 
   const handleCardClick = (cardType) => {
     setExpandedCard(expandedCard === cardType ? null : cardType);

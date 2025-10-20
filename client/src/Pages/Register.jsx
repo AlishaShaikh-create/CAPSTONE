@@ -1,11 +1,13 @@
 import React ,{useState} from 'react';
-import '../Styles/Register.css';
+
 import axios from 'axios'
 // Alert component
 import Alert from '../Components/Alert.jsx';
-import {Link} from 'react-router-dom'
 
+import {Link ,useNavigate} from 'react-router-dom'
 
+//Style
+import '../Styles/Register.css';
 
 const Register = ({alert,showAlert}) => {
   
@@ -21,10 +23,12 @@ const Register = ({alert,showAlert}) => {
     learn:""
   });
 
-// On change handler
+  let navigate = useNavigate();
+
+
 const onChangeHandler = (e) =>{
   try{
-    console.log(e.target.name , e.target.value);
+     console.log(e.target.name , e.target.value);
     setRegisterFormData({
       ...registerFormData,
       [e.target.name]:e.target.value
@@ -36,37 +40,45 @@ const onChangeHandler = (e) =>{
   }
 }  
 
-// after submitting the form data
 const onSubmitHandler =  async(e) =>{
 try
 {
   e.preventDefault();
-  console.log(registerFormData);
-  
-  // This code is if the form passwords does not match
-  if(registerFormData.password!=registerFormData.passwordRepeat)
+
+
+  if(registerFormData.password!== registerFormData.passwordRepeat)
   {
-    // console.log("Password do not match");
+   
      showAlert({
                   type: 'danger',
                   msg: 'password does not match'
                 })
   }
+
   else{
-    const {data} =  await axios.post("http://localhost:5000/register",registerFormData)
+    const {data} =  await axios.post("http://localhost:5000/api/user/register",registerFormData)
     //  console.log(data);
       showAlert({
                   type: 'success',
-                  msg: 'User Registered'
+                  msg: data.success
                 })
     console.log("data send");
   }
+navigate('/login' , {replace:true})
+
 }catch(error)
 {
   console.log(error);
+  showAlert({
+    type:"danger",
+    msg:error.response.data.error
+  })
 }
 
 }
+
+
+
 
 // Frontend code
   return (
@@ -106,6 +118,12 @@ try
 
         <button type="submit" className="bw-btn">Register</button>
         {/* <Link  to ='/login'className="bw-btn">Register</Link> */}
+
+        <div>
+              <p>
+                Already have an account ? <Link to="/login">Login</Link>
+              </p>
+            </div>
       </form>
     </div>
   );

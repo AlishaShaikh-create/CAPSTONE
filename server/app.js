@@ -1,12 +1,18 @@
 import express from "express";
 import cors from "cors";
 
-import bcrypt from 'bcrypt';
+// import bcrypt from 'bcrypt';
 
 //DB connection
-import "./dbConnect.js";
+import "./utils/dbConnect.js";
+
+
 //model registration database
 import registerModel from "./model/User.js";
+
+
+//controller
+import userRouter from './controllers/userController.js'
 
 
 // importing the connect user database
@@ -16,59 +22,91 @@ import ConnectUser from "./model/ConnectUser.js";
 import Message from "./model/Message.js";
 
 
+const PORT = 5000;
 
 const app = express();
 app.use(express.json());
 app.use(cors());
 
 
-const PORT = 5000;
+
 
 // This is just to check if the server is running at that particular port '/' or not 
 app.get("/", (req, res) => {
   res.send("The server is running");
 });
 
+app.use('/api/user',userRouter);
 
 //Register route
-app.post("/register", async (req, res) => {
-  try {
-    const registerFormData = new registerModel(req.body);
-    await registerFormData.save();
-    res.json({ status: "Data sent", user: registerFormData });
-  } catch (error) {
-    console.log(error);
-    res.status(500).json({ error: "Something went wrong" });
-  }
-});
+// app.post("/register", async (req, res) => {
+//   try {
 
-//Login api
+  
+//     let hash = await bcrypt.hash(req.body.password ,12 );
+//     req.body.password = hash;
+//     console.log(req.body.password);
+
+
+//     const registerFormData = await  registerModel(req.body);
+//     await registerFormData.save();
+//     // res.json({ status: "Data sent", user: registerFormData });
+
+//     res.status(200).json({Success:"User Registered Successfully!"})
+//   } catch (error) {
+//     console.log(error);
+//     res.status(500).json({ error: "Internal Server Error , Try again" });
+//   }
+// });
+
+
+
+
+// Login api
 // app.post("/login", async (req, res) => {
 //   try {
 //     const { email, password } = req.body;
 //     const user = await registerModel.findOne({ email, password });
-//     if (!user) return res.status(401).json({ error: "Invalid credentials" });
-//     res.json({ user });
+//     if (user)
+//       {
+//        console.log(user.password ,user.email);
+//        const comparehash = await bcrypt.compare(psw , user.psw);
+
+//       }
+      
+//       if(!user)
+//       {
+//         console.error('This email is not associated with any account');
+//         return res.json({ error : "This email is not associated with any account"})
+//       } else if(!comparehash)
+//       {
+//         console.error('Incorrect Password');
+//         return res.json({error : "Incorrect Password!"})
+//       }
+//     res.status(200).json({status: 'User verified!'});
+
+
 //   } catch (error) {
 //     console.log(error);
+    
 //     res.status(500).json({ error: "Something went wrong" });
 //   }
 // });
 
 //searching user based on their skills
 
-app.post("/search", async (req, res) => {
-  try {
-    const { skill } = req.body;
-    const users = await registerModel.find({
-      teach: { $regex: skill, $options: "i" },
-    });
-    res.json(users);
-  } catch (error) {
-    console.error(error);
-    res.status(500).json({ error: "Something went wrong" });
-  }
-});
+// app.post("/search", async (req, res) => {
+//   try {
+//     const { skill } = req.body;
+//     const users = await registerModel.find({
+//       teach: { $regex: skill, $options: "i" },
+//     });
+//     res.json(users);
+//   } catch (error) {
+//     console.error(error);
+//     res.status(500).json({ error: "Something went wrong" });
+//   }
+// });
 
 // Connect two users
 // POST /connect
@@ -188,6 +226,9 @@ app.post("/messages", async (req, res) => {
     res.status(500).json({ error: "Something went wrong while sending message" });
   }
 });
+
+
+
 
 app.listen(PORT, () => {
   console.log(`The app is listening on port ${PORT}`);

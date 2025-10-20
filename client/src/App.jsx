@@ -7,7 +7,9 @@ import Dashboard from "./Pages/Dashboard";
 import SearchUsers from "./Components/SearchUsers";
 import Connections from "./Components/Connections";
 
+
 function App() {
+    //const [currentUserId, setCurrentUserId] = useState(localStorage.getItem("userId") || null);
   const [alert, setAlert] = useState(null);
   const showAlert = (alert) => {
     setAlert(alert);
@@ -22,7 +24,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Landing />} />
 
-        <Route path="/login" element={<Login />} />
+        <Route path="/login" element={<Login alert={alert} showAlert={showAlert} />} />
 
         {/* <Route path="/register" element={<Register />} /> */}
 

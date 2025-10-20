@@ -19,7 +19,7 @@ const SearchUsers = ({ currentUserId }) => {
   const handleSearch = async () => {
     if (!skill.trim()) return;
     try {
-      const { data } = await axios.post("http://localhost:5000/search", { skill });
+      const { data } = await axios.post("http://localhost:5000/api/user/search", { skill });
       setResults(data);
     } catch (err) {
       console.error("Error searching users:", err);
@@ -75,3 +75,4 @@ const SearchUsers = ({ currentUserId }) => {
 };
 
 export default SearchUsers;
+

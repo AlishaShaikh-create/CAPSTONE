@@ -3,13 +3,13 @@ const accountSid = "AC44a7d4469142fd1ee303d724f2d041a2"
 const authToken = "f9e84058ec849f568a1e79087a70760f"
 const client = new twilio (accountSid , authToken);
 
-async function sendSMS(){
+async function sendSMS(smsData){
     try {
 
         const message = await client.messages.create({
-            body: "This is Alisha , I hope you got the text!",
+            body: smsData.body,
             from: '+18302244237',
-            to: "+919666186555"
+            to: smsData.phone
         });
 
         console.log(message.body);
@@ -19,4 +19,5 @@ async function sendSMS(){
     }
 }
 
-sendSMS()
+// sendSMS()
+export default sendSMS;
