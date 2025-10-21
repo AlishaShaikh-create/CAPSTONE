@@ -6,6 +6,8 @@ import Alert from '../Components/Alert.jsx';
 
 import {Link ,useNavigate} from 'react-router-dom'
 
+
+
 //Style
 import '../Styles/Register.css';
 
