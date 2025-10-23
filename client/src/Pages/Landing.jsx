@@ -4,9 +4,6 @@ import '../Styles/Landing.css'
 import { Link } from 'react-router-dom'
 const Landing = () => {
 
-
-
-
   return (
  
     <>
