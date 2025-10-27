@@ -134,7 +134,3 @@ navigate('/login' , {replace:true})
 export default Register;
 
 
-
-
-
-
