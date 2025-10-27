@@ -137,45 +137,80 @@ const Login = ({ alert, showAlert, setCurrentUserId }) => {
     });
   };
 
-  const onSubmitHandler = async (e) => {
-    e.preventDefault();
+  // const onSubmitHandler = async (e) => {
+  //   e.preventDefault();
 
-    try {
-      const { data } = await axios.post(
-        "http://localhost:5000/api/user/login",
-        userLogin
-      );
+  //   try {
+  //     const { data } = await axios.post(
+  //       "http://localhost:5000/api/user/login",
+  //       userLogin
+  //     );
 
-      if (data.token) {
-        localStorage.setItem("userId", data.userId);
-        setCurrentUserId(data.userId);
-        axios.defaults.headers.common["Authorization"] = "Bearer " + data.token;
-        localStorage.setItem("token", data.token);
+  //     if (data.token) {
+  //       localStorage.setItem("userId", data.userId);
+  //       setCurrentUserId(data.userId);
+  //       axios.defaults.headers.common["Authorization"] = "Bearer " + data.token;
+  //       localStorage.setItem("token", data.token);
 
-        showAlert({
-          type: "success",
-          msg: "Login successful!",
-        });
+  //       showAlert({
+  //         type: "success",
+  //         msg: "Login successful!",
+  //       });
 
-        navigate("/dashboard");
-      } else {
-        showAlert({
-          type: "danger",
-          msg: data.error || "Login failed!",
-        });
-      }
-    } catch (error) {
-      console.error(error);
-      localStorage.removeItem("token");
-      localStorage.removeItem("userId");
-      delete axios.defaults.headers.common["Authorization"];
+  //       navigate("/dashboard");
+  //     } else {
+  //       showAlert({
+  //         type: "danger",
+  //         msg: data.error || "Login failed!",
+  //       });
+  //     }
+  //   } catch (error) {
+  //     console.error(error);
+  //     localStorage.removeItem("token");
+  //     localStorage.removeItem("userId");
+  //     delete axios.defaults.headers.common["Authorization"];
+  //     showAlert({
+  //       type: "danger",
+  //       msg: error.response?.data?.error || "Server error. Try again!",
+  //     });
+  //   }
+  // };
+const onSubmitHandler = async (e) => {
+  e.preventDefault();
+
+  try {
+    const { data } = await axios.post("http://localhost:5000/api/user/login", userLogin);
+
+    if (data.token) {
+      localStorage.setItem("userId", data.userId);
+      setCurrentUserId(data.userId);
+      axios.defaults.headers.common["Authorization"] = "Bearer " + data.token;
+      localStorage.setItem("token", data.token);
+
+      showAlert({
+        type: "success",
+        msg: "Login successful!",
+      });
+
+      navigate("/dashboard");
+    } else {
       showAlert({
         type: "danger",
-        msg: error.response?.data?.error || "Server error. Try again!",
+        msg: data.error || "Login failed!",
       });
     }
-  };
-
+  } catch (error) {
+    console.error(error);
+    localStorage.removeItem("token");
+    localStorage.removeItem("userId");
+    delete axios.defaults.headers.common["Authorization"];
+    // Use a single alert for all errors
+    showAlert({
+      type: "danger",
+      msg: error.response?.data?.error || "Server error. Try again!",
+    });
+  }
+};
   return (
     <div className="login-page">
       <div className="login-container">

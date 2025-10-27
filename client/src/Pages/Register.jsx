@@ -132,7 +132,11 @@
 // };
 
 // export default Register;
-import React, { useState } from "react";
+
+
+
+
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 // Alert component
 import Alert from "../Components/Alert.jsx";
@@ -172,30 +176,41 @@ const Register = ({ alert, showAlert }) => {
     try {
       e.preventDefault();
 
+      // Clear any existing alert before showing a new one
+      // Note: This assumes showAlert can handle clearing; adjust parent if needed
+      showAlert({ type: "", msg: "" }); // Attempt to clear alert
+
       if (registerFormData.password !== registerFormData.passwordRepeat) {
         showAlert({
           type: "danger",
           msg: "password does not match",
         });
+        return; // Do not navigate if passwords don't match
       } else {
         const { data } = await axios.post(
           "http://localhost:5000/api/user/register",
           registerFormData
         );
-        //  console.log(data);
         showAlert({
           type: "success",
           msg: data.success,
         });
         console.log("data send");
       }
-      navigate("/login", { replace: true });
+      // Navigate only if passwords match and registration succeeds
+      setTimeout(() => {
+        navigate("/login", { replace: true });
+      }, 1000); // Delay to show alert
     } catch (error) {
       console.log(error);
       showAlert({
         type: "danger",
-        msg: error.response.data.error,
+        msg: error.response?.data?.error || "Registration failed",
       });
+      // Navigate on other errors with delay
+      setTimeout(() => {
+        navigate("/login", { replace: true });
+      }, 1000); // Delay to show alert
     }
   };
 
