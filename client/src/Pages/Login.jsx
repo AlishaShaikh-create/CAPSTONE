@@ -116,8 +116,6 @@
 
 // export default Login;
 
-
-
 import React, { useState } from "react";
 import "../Styles/Login.css";
 import { Link, useNavigate } from "react-router-dom";
@@ -181,51 +179,59 @@ const Login = ({ alert, showAlert, setCurrentUserId }) => {
   return (
     <div className="login-page">
       <div className="login-container">
-        <h1 className="login-title">TeachMe Login</h1>
-        <Alert alert={alert} />
-
-        <form onSubmit={onSubmitHandler}>
-          <p className="form-info">Please fill this form to login</p>
-          <hr />
-
-          <label htmlFor="email">Email</label>
-          <input
-            type="email"
-            id="email"
-            placeholder="Enter your email"
-            name="email"
-            onChange={onChangeHandler}
-            required
-          />
-
-          <label htmlFor="password">Password</label>
-          <input
-            type="password"
-            id="password"
-            placeholder="Enter your password"
-            name="password"
-            onChange={onChangeHandler}
-            required
-          />
-
-          <hr />
-
-          <p className="terms">
-            By logging in, you agree to our{" "}
-            <i>
-              <a href="#">Terms & Privacy</a>
-            </i>
+        <div className="login-form">
+          <h1 className="login-title">Login</h1>
+          <p className="signup-link">
+            Doesn’t have an account yet? <Link to="/register">Sign Up</Link>
           </p>
+          <Alert alert={alert} />
 
-          <button type="submit" className="login-btn">
-            Login
-          </button>
-        </form>
+          <form onSubmit={onSubmitHandler}>
+            <div className="form-group">
+              <label htmlFor="email">Email Address</label>
+              <input
+                type="email"
+                id="email"
+                placeholder="you@example.com"
+                name="email"
+                value={userLogin.email}
+                onChange={onChangeHandler}
+                required
+              />
+            </div>
 
-        <div className="signin">
-          <p>
-            Don’t have an account? <Link to="/register">Register</Link>
-          </p>
+            <div className="form-group">
+              <label htmlFor="password">Password</label>
+              <div className="password-container">
+                <input
+                  type="password"
+                  id="password"
+                  placeholder="Enter 6 characters or more"
+                  name="password"
+                  value={userLogin.password}
+                  onChange={onChangeHandler}
+                  required
+                />
+                <a href="#" className="forgot-password">Forgot Password?</a>
+              </div>
+            </div>
+
+           
+           
+
+            <button type="submit" className="login-btn">
+              LOGIN
+            </button>
+            <div className="social-login">
+              
+            </div>
+          </form>
+        </div>
+        <div className="login-image">
+          <img
+            src="https://static.vecteezy.com/system/resources/previews/002/470/919/non_2x/email-marketing-illustration-for-design-digital-vector.jpg"
+            alt="login"
+          />
         </div>
       </div>
     </div>
