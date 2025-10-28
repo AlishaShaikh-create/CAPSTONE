@@ -1,4 +1,4 @@
-
+import { useTheme } from '../context/ThemeContext';
 
 import React, { useState } from "react";
 import "../Styles/Login.css";
@@ -7,6 +7,10 @@ import axios from "axios";
 import Alert from "../Components/Alert.jsx";
 
 const Login = ({ alert, showAlert, setCurrentUserId }) => {
+
+  const { isDarkMode, toggleTheme } = useTheme();
+
+
   const [userLogin, setUserLogin] = useState({
     email: "",
     password: "",
@@ -97,6 +101,7 @@ const onSubmitHandler = async (e) => {
 };
   return (
     <div className="login-page">
+     
       <div className="login-container">
         <div className="login-form">
           <h1 className="login-title">Login</h1>

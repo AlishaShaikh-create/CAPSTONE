@@ -1,4 +1,4 @@
-/* Messages.css - Professional Styling matching Dashboard */
+/* Messages.css - Professional Styling matching Dashboard (Blue Theme) */
 
 /* Main Wrapper */
 .messages-wrapper {
@@ -431,4 +431,148 @@
 /* Smooth Transitions */
 * {
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ========================================
+   DARK MODE – BLUE THEME (NO PURPLE)
+   ======================================== */
+html.dark .messages-wrapper {
+  background: #0f172a;
+}
+
+html.dark .connection-card {
+  background-color: #1e293b;
+  border: 1px solid #334155;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+html.dark .connection-card:hover {
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
+  border-color: #007bff;
+}
+
+html.dark .avatar-initial {
+  background: linear-gradient(135deg, #007bff, #0056b3);
+  box-shadow: 0 4px 15px rgba(0, 123, 255, 0.4);
+}
+
+html.dark .connection-name {
+  color: #f1f5f9;
+  border-bottom: 2px solid #007bff;
+}
+
+html.dark .connection-info {
+  color: #94a3b8;
+}
+
+html.dark .btn-primary {
+  background: linear-gradient(135deg, #007bff, #0056b3);
+  box-shadow: 0 2px 8px rgba(0, 123, 255, 0.3);
+}
+
+html.dark .btn-primary:hover {
+  background: linear-gradient(135deg, #0056b3, #004085);
+  box-shadow: 0 4px 15px rgba(0, 123, 255, 0.4);
+}
+
+html.dark .btn-secondary {
+  background: linear-gradient(135deg, #475569, #334155);
+  box-shadow: 0 2px 8px rgba(71, 85, 105, 0.3);
+}
+
+html.dark .btn-secondary:hover {
+  background: linear-gradient(135deg, #334155, #1e293b);
+  box-shadow: 0 4px 15px rgba(71, 85, 105, 0.4);
+}
+
+html.dark .chat-container {
+  background-color: #1e293b;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
+  border: 1px solid #334155;
+}
+
+html.dark .messages-header {
+  background: linear-gradient(135deg, #007bff, #0056b3);
+  box-shadow: 0 2px 10px rgba(0, 123, 255, 0.3);
+}
+
+html.dark .messages-header .section-title {
+  color: white;
+}
+
+html.dark .back-button {
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  color: white;
+}
+
+html.dark .back-button:hover {
+  background: rgba(255, 255, 255, 0.25);
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+html.dark .messages-container {
+  background-color: #0f172a;
+}
+
+html.dark .messages-container::-webkit-scrollbar-track {
+  background: #334155;
+}
+
+html.dark .messages-container::-webkit-scrollbar-thumb {
+  background: #007bff;
+}
+
+html.dark .messages-container::-webkit-scrollbar-thumb:hover {
+  background: #0056b3;
+}
+
+html.dark .no-messages {
+  background-color: #1e293b;
+  border: 2px dashed #475569;
+  color: #94a3b8;
+}
+
+html.dark .message.sent {
+  background: linear-gradient(135deg, #007bff, #0056b3);
+  color: white;
+}
+
+html.dark .message.received {
+  background-color: #334155;
+  color: #e2e8f0;
+  border: 1px solid #475569;
+}
+
+html.dark .message-timestamp {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+html.dark .message-input-group {
+  background-color: #1e293b;
+  border-top: 1px solid #334155;
+}
+
+html.dark .message-input {
+  background-color: #334155;
+  border: 2px solid #475569;
+  color: #f1f5f9;
+}
+
+html.dark .message-input::placeholder {
+  color: #64748b;
+}
+
+html.dark .message-input:focus {
+  border-color: #007bff;
+  background-color: #1e293b;
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.2);
+}
+
+html.dark .send-button {
+  background: linear-gradient(135deg, #007bff, #0056b3);
+}
+
+html.dark .chat-container::before {
+  background-color: rgba(0, 0, 0, 0.7);
 }

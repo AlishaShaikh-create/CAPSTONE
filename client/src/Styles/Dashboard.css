@@ -1,4 +1,4 @@
-/* Dashboard.css - Professional Styling */
+/* Dashboard.css - Professional Styling with Dark Mode (Blue Theme) */
 
 /* Global Reset and Base Styles */
 * {
@@ -95,13 +95,13 @@ body {
   box-shadow: 0 4px 20px rgba(0, 123, 255, 0.15);
 }
 
-.welcome-title {
+.welcome-card h2 {
   font-size: 2.2rem;
   margin-bottom: 0.5rem;
   font-weight: 300;
 }
 
-.welcome-description {
+.welcome-card p {
   font-size: 1.1rem;
   opacity: 0.95;
 }
@@ -131,7 +131,7 @@ body {
 }
 
 .stat-card.expanded {
-  grid-column: 1 / -1; /* Full width when expanded */
+  grid-column: 1 / -1;
   max-height: none;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
 }
@@ -171,7 +171,7 @@ body {
   }
   to {
     opacity: 1;
-    max-height: 300px; /* Adjust as needed */
+    max-height: 300px;
   }
 }
 
@@ -213,7 +213,7 @@ body {
   background-color: #e3f2fd;
 }
 
-/* Search and Connections Pages - Placeholder Styles (Assuming components handle their own) */
+/* Search and Connections Pages */
 .search-section,
 .connections-section {
   background-color: #ffffff;
@@ -240,7 +240,7 @@ body {
     padding: 1rem;
   }
 
-  .welcome-title {
+  .welcome-card h2 {
     font-size: 1.8rem;
   }
 
@@ -291,3 +291,327 @@ body {
 .skill-list::-webkit-scrollbar-thumb:hover {
   background: #0056b3;
 }
+
+/* ========================================
+   DARK MODE – BLUE THEME (NO PURPLE)
+   ======================================== */
+html.dark .dashboard,
+html.dark body {
+  background: #0f172a;
+  color: #e2e8f0;
+}
+
+html.dark .top-navbar {
+  background-color: #1e293b;
+  border-bottom: 1px solid #334155;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+html.dark .navbar-brand h1 {
+  color: #4dabf7; /* Lighter blue for visibility */
+}
+
+html.dark .nav-item {
+  color: #94a3b8;
+}
+
+html.dark .nav-item:hover,
+html.dark .nav-item.active {
+  background-color: #334155;
+  color: #4dabf7;
+}
+
+html.dark .main-content {
+  color: #cbd5e1;
+}
+
+html.dark .welcome-card {
+  background: linear-gradient(135deg, #007bff, #0056b3);
+  box-shadow: 0 4px 20px rgba(0, 123, 255, 0.3);
+}
+
+html.dark .welcome-card h2,
+html.dark .welcome-card p {
+  color: #f8f9fa;
+}
+
+html.dark .stat-card {
+  background-color: #1e293b;
+  border: 1px solid #334155;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+html.dark .stat-card:hover {
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
+}
+
+html.dark .stat-card.expanded {
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+}
+
+html.dark .stat-value {
+  color: #4dabf7; /* Bright blue */
+}
+
+html.dark .stat-label {
+  color: #94a3b8;
+}
+
+html.dark .expanded-details {
+  background-color: #334155;
+  border-top: 1px solid #475569;
+}
+
+html.dark .expanded-title {
+  color: #e2e8f0;
+  border-bottom: 1px solid #475569;
+}
+
+html.dark .expanded-info {
+  color: #94a3b8;
+}
+
+html.dark .connection-item,
+html.dark .skill-item {
+  background-color: #334155;
+  border-left: 3px solid #007bff;
+}
+
+html.dark .connection-item:hover,
+html.dark .skill-item:hover {
+  background-color: #475569;
+}
+
+html.dark .search-section,
+html.dark .connections-section {
+  background-color: #1e293b;
+  border: 1px solid #334155;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Scrollbar in Dark Mode - Blue */
+html.dark .connection-list::-webkit-scrollbar-track,
+html.dark .skill-list::-webkit-scrollbar-track {
+  background: #334155;
+}
+
+html.dark .connection-list::-webkit-scrollbar-thumb,
+html.dark .skill-list::-webkit-scrollbar-thumb {
+  background: #007bff;
+}
+
+html.dark .connection-list::-webkit-scrollbar-thumb:hover,
+html.dark .skill-list::-webkit-scrollbar-thumb:hover {
+  background: #0056b3;
+}
+
+
+/**/
+/* src/Styles/Dashboard.css — ADD TO BOTTOM */
+
+/* PROFILE PREVIEW */
+.profile-preview-card {
+  background: white;
+  border-radius: 16px;
+  padding: 2rem;
+  margin: 1.5rem 0;
+  box-shadow: 0 8px 25px rgba(0, 123, 255, 0.1);
+  border: 1px solid #e3f2fd;
+}
+
+.profile-preview-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.profile-preview-avatar {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background: #007bff;
+  color: white;
+  font-size: 2rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(0, 123, 255, 0.3);
+}
+
+.profile-preview-name {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 0;
+  color: #212529;
+}
+
+.profile-preview-email {
+  font-size: 0.95rem;
+  color: #6c757d;
+  margin: 0.25rem 0 0;
+}
+
+.profile-field {
+  margin-bottom: 1.5rem;
+}
+
+.profile-field label {
+  display: block;
+  font-weight: 600;
+  color: #212529;
+  margin-bottom: 0.5rem;
+}
+
+.profile-textarea,
+.profile-input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 1px solid #dee2e6;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.profile-textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+.profile-textarea:focus,
+.profile-input:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1);
+}
+
+.skills-inline {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.skills-inline-input {
+  flex: 1;
+  padding: 0.65rem 1rem;
+  border: 1px solid #dee2e6;
+  border-radius: 8px;
+  font-size: 0.95rem;
+}
+
+.skills-inline-input:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1);
+}
+
+.add-inline-btn {
+  padding: 0.65rem 1.2rem;
+  background: #007bff;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+.add-inline-btn:hover:not(:disabled) {
+  background: #0056b3;
+}
+
+.add-inline-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.skills-inline-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.skill-inline-tag {
+  background: #e3f2fd;
+  color: #007bff;
+  padding: 0.4rem 0.8rem;
+  border-radius: 50px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.skill-inline-tag:hover {
+  background: #bbdefb;
+}
+
+.remove-inline {
+  background: none;
+  border: none;
+  color: #d32f2f;
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+  width: 18px;
+  height: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.remove-inline:hover {
+  background: #ffcdd2;
+  border-radius: 50%;
+  color: #b71c1c;
+}
+
+.no-skills-inline {
+  color: #6c757d;
+  font-style: italic;
+  font-size: 0.9rem;
+}
+
+.saving-inline {
+  text-align: center;
+  color: #007bff;
+  font-weight: 500;
+  margin-top: 1rem;
+  animation: pulse 1.5s infinite;
+}
+
+/* DARK MODE */
+html.dark .profile-preview-card {
+  background: #1e293b;
+  border-color: #334155;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+}
+
+html.dark .profile-preview-name { color: #f1f5f9; }
+html.dark .profile-preview-email { color: #94a3b8; }
+html.dark .profile-field label { color: #f1f5f9; }
+
+html.dark .profile-textarea,
+html.dark .profile-input,
+html.dark .skills-inline-input {
+  background: #334155;
+  border-color: #475569;
+  color: #f1f5f9;
+}
+
+html.dark .profile-textarea::placeholder,
+html.dark .profile-input::placeholder,
+html.dark .skills-inline-input::placeholder {
+  color: #64748b;
+}
+
+html.dark .skill-inline-tag {
+  background: #334155;
+  color: #60a5fa;
+}
+
+html.dark .skill-inline-tag:hover { background: #475569; }
+html.dark .no-skills-inline { color: #94a3b8; }
+html.dark .saving-inline { color: #60a5fa; }

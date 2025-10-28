@@ -1,3 +1,5 @@
+/* Login.css - Professional Login Page with Dark Mode (Blue Theme) */
+
 /* Global Reset for Login Page */
 * {
   margin: 0;
@@ -276,6 +278,114 @@
 /* Accessibility */
 .form-group input:focus-visible,
 .login-btn:focus-visible {
+  outline: 2px solid #007bff;
+  outline-offset: 2px;
+}
+
+/* ========================================
+   DARK MODE – BLUE THEME (NO PURPLE)
+   ======================================== */
+html.dark .login-page {
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+}
+
+html.dark .login-container {
+  background: #1e293b;
+  border: 1px solid #334155;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
+}
+
+html.dark .login-form {
+  background: #1e293b;
+}
+
+html.dark .login-title {
+  color: #4dabf7; /* Bright blue for visibility */
+}
+
+html.dark .signup-link {
+  color: #94a3b8;
+}
+
+html.dark .signup-link a {
+  color: #4dabf7;
+}
+
+html.dark .signup-link a:hover {
+  color: #60a5fa;
+  text-decoration: underline;
+}
+
+html.dark .form-group label {
+  color: #e2e8f0;
+}
+
+html.dark .form-group input,
+html.dark .password-container input {
+  background: #334155;
+  border-color: #475569;
+  color: #f1f5f9;
+}
+
+html.dark .form-group input::placeholder,
+html.dark .password-container input::placeholder {
+  color: #64748b;
+}
+
+html.dark .form-group input:focus,
+html.dark .password-container input:focus {
+  border-color: #007bff;
+  background: #1e293b;
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.2);
+}
+
+html.dark .forgot-password {
+  color: #4dabf7;
+}
+
+html.dark .forgot-password:hover {
+  color: #60a5fa;
+  text-decoration: underline;
+}
+
+html.dark .login-btn {
+  background: linear-gradient(135deg, #007bff, #0056b3);
+  box-shadow: 0 4px 15px rgba(0, 123, 255, 0.3);
+}
+
+html.dark .login-btn:hover {
+  background: linear-gradient(135deg, #0056b3, #004085);
+  box-shadow: 0 6px 20px rgba(0, 123, 255, 0.4);
+}
+
+html.dark .social-login {
+  border-top: 1px solid #334155;
+}
+
+html.dark .login-image {
+  background: linear-gradient(135deg, #1e293b, #334155);
+}
+
+html.dark .login-image::before {
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+}
+
+html.dark .login-image img {
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+}
+
+/* Validation in Dark Mode */
+html.dark .form-group input:invalid:not(:placeholder-shown) {
+  border-color: #f87171;
+}
+
+html.dark .form-group input:valid:not(:placeholder-shown) {
+  border-color: #34d399;
+}
+
+/* Accessibility */
+html.dark .form-group input:focus-visible,
+html.dark .login-btn:focus-visible {
   outline: 2px solid #007bff;
   outline-offset: 2px;
 }

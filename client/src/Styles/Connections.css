@@ -1,4 +1,4 @@
-/* Connections.css - Professional Styling matching Dashboard */
+/* Connections.css - Professional Styling matching Dashboard (Blue Theme) */
 
 /* Main Container */
 .connections {
@@ -110,4 +110,43 @@
     padding: 0.75rem 1rem;
     font-size: 0.95rem;
   }
+}
+
+/* ========================================
+   DARK MODE – BLUE THEME (NO PURPLE)
+   ======================================== */
+html.dark .connections {
+  background-color: #1e293b;
+  border: 1px solid #334155;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+html.dark .section-title {
+  color: #4dabf7; /* Lighter blue for contrast */
+}
+
+html.dark .search-input {
+  background-color: #334155;
+  border-color: #475569;
+  color: #f1f5f9;
+}
+
+html.dark .search-input::placeholder {
+  color: #64748b;
+}
+
+html.dark .search-input:focus {
+  border-color: #007bff;
+  background-color: #1e293b;
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.2);
+}
+
+html.dark .loading {
+  color: #94a3b8;
+}
+
+html.dark .no-connections {
+  background-color: #334155;
+  border-color: #475569;
+  color: #94a3b8;
 }

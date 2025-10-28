@@ -1,4 +1,4 @@
-/* SearchUser.css - Professional Styling matching Dashboard */
+/* SearchUser.css - Professional Styling matching Dashboard (Blue Theme) */
 
 /* Main Container */
 .search-users {
@@ -249,4 +249,91 @@
 /* Smooth Transitions */
 * {
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ========================================
+   DARK MODE – BLUE THEME (NO PURPLE)
+   ======================================== */
+html.dark .search-users {
+  background-color: #1e293b;
+  border: 1px solid #334155;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+html.dark .section-title {
+  color: #4dabf7; /* Bright blue for contrast */
+}
+
+html.dark .loading {
+  color: #94a3b8;
+}
+
+html.dark .search-input {
+  background-color: #334155;
+  border-color: #475569;
+  color: #f1f5f9;
+}
+
+html.dark .search-input::placeholder {
+  color: #64748b;
+}
+
+html.dark .search-input:focus {
+  border-color: #007bff;
+  background-color: #1e293b;
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.2);
+}
+
+html.dark .btn-primary {
+  background: linear-gradient(135deg, #007bff, #0056b3);
+  box-shadow: 0 2px 8px rgba(0, 123, 255, 0.3);
+}
+
+html.dark .btn-primary:hover {
+  background: linear-gradient(135deg, #0056b3, #004085);
+  box-shadow: 0 4px 15px rgba(0, 123, 255, 0.4);
+}
+
+html.dark .no-results {
+  background-color: #334155;
+  border-color: #475569;
+  color: #94a3b8;
+}
+
+html.dark .user-card {
+  background-color: #1e293b;
+  border: 1px solid #334155;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+html.dark .user-card:hover {
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
+  border-color: #007bff;
+}
+
+html.dark .user-name {
+  color: #f1f5f9;
+  border-bottom: 2px solid #007bff;
+}
+
+html.dark .user-info {
+  color: #94a3b8;
+}
+
+html.dark .user-info strong {
+  color: #e2e8f0;
+}
+
+html.dark .connect-button {
+  background: linear-gradient(135deg, #007bff, #0056b3);
+  box-shadow: 0 2px 8px rgba(0, 123, 255, 0.3);
+}
+
+html.dark .connect-button:hover:not(:disabled) {
+  background: linear-gradient(135deg, #0056b3, #004085);
+  box-shadow: 0 4px 15px rgba(0, 123, 255, 0.4);
+}
+
+html.dark .connect-button.connected {
+  background: linear-gradient(135deg, #16a34a, #15803d);
 }

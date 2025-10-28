@@ -1,4 +1,4 @@
-/* Landing.css - Enhanced Professional Landing Page with Animations */
+/* Landing.css - Enhanced Professional Landing Page with Animations (Blue Theme) */
 
 /* Global Reset */
 * {
@@ -811,7 +811,7 @@ html {
 }
 
 /* ========================================
-   DARK MODE – FULLY COMPATIBLE OVERRIDES
+   DARK MODE – BLUE THEME (NO PURPLE)
    ======================================== */
 html.dark .landing-page {
   background: #0f172a;
@@ -826,7 +826,7 @@ html.dark .landing-navbar {
 }
 
 html.dark .landing-logo h1 {
-  background: linear-gradient(135deg, #818cf8, #6366f1);
+  background: linear-gradient(135deg, #4dabf7, #007bff);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -837,21 +837,21 @@ html.dark .landing-nav-link {
 }
 
 html.dark .landing-nav-link:hover {
-  color: #c4b5fd;
+  color: #60a5fa;
 }
 
 html.dark .landing-nav-link::after {
-  background: linear-gradient(135deg, #818cf8, #6366f1);
+  background: linear-gradient(135deg, #4dabf7, #007bff);
 }
 
 html.dark .landing-nav-btn {
-  background: linear-gradient(135deg, #6366f1, #4f46e5);
-  box-shadow: 0 4px 15px rgba(99, 102, 241, 0.4);
+  background: linear-gradient(135deg, #007bff, #0056b3);
+  box-shadow: 0 4px 15px rgba(0, 123, 255, 0.4);
 }
 
 html.dark .landing-nav-btn:hover {
-  background: linear-gradient(135deg, #4f46e5, #4338ca);
-  box-shadow: 0 6px 25px rgba(99, 102, 241, 0.5);
+  background: linear-gradient(135deg, #0056b3, #004085);
+  box-shadow: 0 6px 25px rgba(0, 123, 255, 0.5);
 }
 
 html.dark .landing-hero {
@@ -866,7 +866,7 @@ html.dark .landing-hero-description {
 
 html.dark .landing-btn-primary {
   background: #ffffff;
-  color: #6366f1;
+  color: #007bff;
   box-shadow: 0 4px 15px rgba(255, 255, 255, 0.3);
 }
 
@@ -886,7 +886,7 @@ html.dark .landing-btn-secondary:hover {
 }
 
 html.dark .landing-stat-number {
-  color: #c4b5fd;
+  color: #60a5fa;
 }
 
 html.dark .wave-path {
@@ -912,7 +912,7 @@ html.dark .landing-feature-description {
 }
 
 html.dark .image-overlay {
-  background: linear-gradient(135deg, rgba(99, 102, 241, 0.8), rgba(79, 70, 229, 0.8));
+  background: linear-gradient(135deg, rgba(0, 123, 255, 0.8), rgba(0, 86, 179, 0.8));
 }
 
 html.dark .landing-benefits {
@@ -925,7 +925,7 @@ html.dark .benefit-item {
 }
 
 html.dark .benefit-icon-wrapper {
-  background: linear-gradient(135deg, #6366f1, #4f46e5);
+  background: linear-gradient(135deg, #007bff, #0056b3);
 }
 
 html.dark .landing-cta {
@@ -934,7 +934,7 @@ html.dark .landing-cta {
 
 html.dark .landing-cta-button {
   background: #ffffff;
-  color: #6366f1;
+  color: #007bff;
 }
 
 html.dark .landing-cta-button:hover {
@@ -951,7 +951,7 @@ html.dark .landing-footer a {
 }
 
 html.dark .landing-footer a:hover {
-  color: #cbd5e1;
+  color: #60a5fa;
 }
 
 html.dark .landing-footer-title {
@@ -963,9 +963,8 @@ html.dark .landing-footer-bottom {
   color: #94a3b8;
 }
 
-
 /* ========================================
-   THEME TOGGLE – SVG ICONS + ANIMATED SLIDER
+   THEME TOGGLE – SVG ICONS + ANIMATED SLIDER (BLUE)
    ======================================== */
 .theme-toggle-btn {
   position: relative;

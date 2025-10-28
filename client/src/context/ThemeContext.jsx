@@ -1,22 +1,57 @@
+// // src/context/ThemeContext.jsx
+// import React, { createContext, useContext, useEffect, useState } from 'react';
+
+// const ThemeContext = createContext();
+
+// export const useTheme = () => useContext(ThemeContext);
+
+// export const ThemeProvider = ({ children }) => {
+//   const [isDarkMode, setIsDarkMode] = useState(() => {
+//     const saved = localStorage.getItem('theme');
+//     return saved === 'dark';
+//   });
+
+//   useEffect(() => {
+//     if (isDarkMode) {
+//       document.documentElement.classList.add('dark');
+//       localStorage.setItem('theme', 'dark');
+//     } else {
+//       document.documentElement.classList.remove('dark');
+//       localStorage.setItem('theme', 'light');
+//     }
+//   }, [isDarkMode]);
+
+//   const toggleTheme = () => setIsDarkMode(prev => !prev);
+
+//   return (
+//     <ThemeContext.Provider value={{ isDarkMode, toggleTheme }}>
+//       {children}
+//     </ThemeContext.Provider>
+//   );
+// };
+
+
+
 // src/context/ThemeContext.jsx
 import React, { createContext, useContext, useEffect, useState } from 'react';
 
 const ThemeContext = createContext();
-
 export const useTheme = () => useContext(ThemeContext);
 
 export const ThemeProvider = ({ children }) => {
   const [isDarkMode, setIsDarkMode] = useState(() => {
     const saved = localStorage.getItem('theme');
-    return saved === 'dark';
+    if (saved) return saved === 'dark';
+    return window.matchMedia('(prefers-color-scheme: dark)').matches;
   });
 
   useEffect(() => {
+    const root = document.documentElement;
     if (isDarkMode) {
-      document.documentElement.classList.add('dark');
+      root.classList.add('dark');
       localStorage.setItem('theme', 'dark');
     } else {
-      document.documentElement.classList.remove('dark');
+      root.classList.remove('dark');
       localStorage.setItem('theme', 'light');
     }
   }, [isDarkMode]);

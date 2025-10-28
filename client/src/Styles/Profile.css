@@ -1,0 +1,334 @@
+/* src/Styles/Profile.css */
+.profile-wrapper {
+  max-width: 1000px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+  animation: fadeIn 0.5s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.profile-loading,
+.profile-error {
+  text-align: center;
+  padding: 3rem;
+  font-size: 1.2rem;
+  color: #6c757d;
+  font-style: italic;
+}
+
+.profile-header {
+  background: linear-gradient(135deg, #007bff, #0056b3);
+  color: white;
+  padding: 3rem 2rem;
+  border-radius: 16px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 8px 25px rgba(0, 123, 255, 0.2);
+  margin-bottom: 2rem;
+}
+
+.profile-header::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.15) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.profile-avatar {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: white;
+  color: #007bff;
+  font-size: 3.5rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1rem;
+  box-shadow: 0 8px 25px rgba(0, 123, 255, 0.3);
+}
+
+.profile-name {
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin: 0.5rem 0;
+  letter-spacing: -0.5px;
+}
+
+.profile-role,
+.profile-location {
+  font-size: 1.1rem;
+  opacity: 0.95;
+  margin: 0.5rem 0;
+}
+
+.profile-body {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+@media (max-width: 768px) {
+  .profile-body { grid-template-columns: 1fr; }
+}
+
+.about-card,
+.location-card,
+.skills-card {
+  background: #ffffff;
+  border: 1px solid #e9ecef;
+  border-radius: 12px;
+  padding: 1.75rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+}
+
+.about-card:hover,
+.location-card:hover,
+.skills-card:hover {
+  box-shadow: 0 8px 25px rgba(0, 123, 255, 0.15);
+  transform: translateY(-4px);
+  border-color: #007bff;
+}
+
+.section-title {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: #212529;
+  margin-bottom: 1rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 2px solid #007bff;
+  display: inline-block;
+}
+
+.about-textarea {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 1px solid #dee2e6;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-family: inherit;
+  resize: vertical;
+  transition: all 0.3s ease;
+}
+
+.about-textarea:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1);
+}
+
+.about-textarea::placeholder {
+  color: #6c757d;
+  font-style: italic;
+}
+
+.location-input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 1px solid #dee2e6;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.location-input:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1);
+}
+
+.skills-input-group {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.skills-input {
+  flex: 1;
+  padding: 0.75rem 1rem;
+  border: 1px solid #dee2e6;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.skills-input:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1);
+}
+
+.add-skill-btn {
+  padding: 0.75rem 1.5rem;
+  background: linear-gradient(135deg, #007bff, #0056b3);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+.add-skill-btn:hover:not(:disabled) {
+  background: linear-gradient(135deg, #0056b3, #004085);
+  transform: translateY(-2px);
+}
+
+.add-skill-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.skills-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 0.5rem;
+}
+
+.skill-tag {
+  background: #e3f2fd;
+  color: #007bff;
+  padding: 0.5rem 1rem;
+  border-radius: 50px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.3s ease;
+}
+
+.skill-tag:hover {
+  background: #bbdefb;
+  transform: translateY(-1px);
+}
+
+.remove-skill {
+  background: none;
+  border: none;
+  color: #d32f2f;
+  font-weight: bold;
+  font-size: 1.1rem;
+  cursor: pointer;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: all 0.2s ease;
+}
+
+.remove-skill:hover {
+  background: #ffcdd2;
+  color: #b71c1c;
+}
+
+.no-skills {
+  color: #6c757d;
+  font-style: italic;
+  margin: 1rem 0;
+  font-size: 0.95rem;
+}
+
+.saving-indicator {
+  text-align: center;
+  color: #007bff;
+  font-weight: 500;
+  margin-top: 1.5rem;
+  font-size: 1rem;
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 0.7; }
+  50% { opacity: 1; }
+}
+
+/* DARK MODE */
+html.dark .profile-header {
+  background: linear-gradient(135deg, #1e293b, #334155);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
+}
+
+html.dark .profile-avatar {
+  background: #334155;
+  color: #60a5fa;
+}
+
+html.dark .about-card,
+html.dark .location-card,
+html.dark .skills-card {
+  background: #1e293b;
+  border: 1px solid #334155;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+html.dark .about-card:hover,
+html.dark .location-card:hover,
+html.dark .skills-card:hover {
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
+  border-color: #007bff;
+}
+
+html.dark .section-title {
+  color: #f1f5f9;
+  border-bottom: 2px solid #007bff;
+}
+
+html.dark .about-textarea,
+html.dark .location-input,
+html.dark .skills-input {
+  background: #334155;
+  border-color: #475569;
+  color: #f1f5f9;
+}
+
+html.dark .about-textarea::placeholder,
+html.dark .location-input::placeholder,
+html.dark .skills-input::placeholder {
+  color: #64748b;
+}
+
+html.dark .about-textarea:focus,
+html.dark .location-input:focus,
+html.dark .skills-input:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.2);
+  background: #1e293b;
+}
+
+html.dark .add-skill-btn {
+  background: linear-gradient(135deg, #007bff, #0056b3);
+}
+
+html.dark .add-skill-btn:hover:not(:disabled) {
+  background: linear-gradient(135deg, #0056b3, #004085);
+}
+
+html.dark .skill-tag {
+  background: #334155;
+  color: #60a5fa;
+}
+
+html.dark .skill-tag:hover {
+  background: #475569;
+}
+
+html.dark .no-skills {
+  color: #94a3b8;
+}
+
+html.dark .saving-indicator {
+  color: #60a5fa;
+}
