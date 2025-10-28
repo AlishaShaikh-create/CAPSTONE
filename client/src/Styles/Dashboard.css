@@ -615,3 +615,215 @@ html.dark .skill-inline-tag {
 html.dark .skill-inline-tag:hover { background: #475569; }
 html.dark .no-skills-inline { color: #94a3b8; }
 html.dark .saving-inline { color: #60a5fa; }
+
+/* src/Styles/Dashboard.css — ADD TO BOTTOM */
+
+.profile-preview-card {
+  background: white;
+  border-radius: 16px;
+  padding: 2rem;
+  margin: 1.5rem 0;
+  box-shadow: 0 8px 25px rgba(0, 123, 255, 0.1);
+  border: 1px solid #e3f2fd;
+}
+
+.profile-preview-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.profile-preview-avatar {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background: #007bff;
+  color: white;
+  font-size: 2rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.profile-preview-name {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 0;
+  color: #212529;
+}
+
+.profile-preview-email {
+  font-size: 0.95rem;
+  color: #6c757d;
+  margin: 0.25rem 0 0;
+}
+
+.profile-field {
+  margin-bottom: 1.5rem;
+}
+
+.profile-field label {
+  display: block;
+  font-weight: 600;
+  color: #212529;
+  margin-bottom: 0.5rem;
+}
+
+.profile-textarea,
+.profile-input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 1px solid #dee2e6;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.profile-textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+.profile-textarea:focus,
+.profile-input:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1);
+}
+
+.skills-inline {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.skills-inline-input {
+  flex: 1;
+  padding: 0.65rem 1rem;
+  border: 1px solid #dee2e6;
+  border-radius: 8px;
+  font-size: 0.95rem;
+}
+
+.skills-inline-input:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1);
+}
+
+.add-inline-btn {
+  padding: 0.65rem 1.2rem;
+  background: #007bff;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+.add-inline-btn:hover:not(:disabled) {
+  background: #0056b3;
+}
+
+.add-inline-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.skills-inline-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.skill-inline-tag {
+  background: #e3f2fd;
+  color: #007bff;
+  padding: 0.4rem 0.8rem;
+  border-radius: 50px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.skill-inline-tag:hover {
+  background: #bbdefb;
+}
+
+.remove-inline {
+  background: none;
+  border: none;
+  color: #d32f2f;
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+  width: 18px;
+  height: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.remove-inline:hover {
+  background: #ffcdd2;
+  border-radius: 50%;
+  color: #b71c1c;
+}
+
+.no-skills-inline {
+  color: #6c757d;
+  font-style: italic;
+  font-size: 0.9rem;
+}
+
+.saving-inline {
+  text-align: center;
+  color: #007bff;
+  font-weight: 500;
+  margin-top: 1rem;
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 0.7; }
+  50% { opacity: 1; }
+}
+
+/* DARK MODE */
+html.dark .profile-preview-card {
+  background: #1e293b;
+  border-color: #334155;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+}
+
+html.dark .profile-preview-name { color: #f1f5f9; }
+html.dark .profile-preview-email { color: #94a3b8; }
+html.dark .profile-field label { color: #f1f5f9; }
+
+html.dark .profile-textarea,
+html.dark .profile-input,
+html.dark .skills-inline-input {
+  background: #334155;
+  border-color: #475569;
+  color: #f1f5f9;
+}
+
+html.dark .profile-textarea::placeholder,
+html.dark .profile-input::placeholder,
+html.dark .skills-inline-input::placeholder {
+  color: #64748b;
+}
+
+html.dark .skill-inline-tag {
+  background: #334155;
+  color: #60a5fa;
+}
+
+html.dark .skill-inline-tag:hover { background: #475569; }
+html.dark .no-skills-inline { color: #94a3b8; }
+html.dark .saving-inline { color: #60a5fa; }

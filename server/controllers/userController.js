@@ -386,32 +386,7 @@ router.put("/:id", async (req, res) => {
 
 
 
-// In your userRouter
-router.put("/:id", async (req, res) => {
-  try {
-    const { id } = req.params;
-    const updates = req.body;
 
-    const allowed = ["teach", "learn", "about", "location"];
-    const filtered = {};
-    allowed.forEach(field => {
-      if (updates[field] !== undefined) filtered[field] = updates[field];
-    });
-
-    const updatedUser = await registerModel.findByIdAndUpdate(
-      id,
-      filtered,
-      { new: true }
-    ).select("name email teach learn about location");
-
-    if (!updatedUser) return res.status(404).json({ error: "User not found" });
-
-    res.json(updatedUser);
-  } catch (error) {
-    console.error(error);
-    res.status(500).json({ error: "Failed to update profile" });
-  }
-});
 export default router;
 
 

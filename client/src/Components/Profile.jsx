@@ -184,3 +184,4 @@ const Profile = ({ currentUserId }) => {
 };
 
 export default Profile;
+

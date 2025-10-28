@@ -108,38 +108,24 @@
   display: inline-block;
 }
 
+.about-textarea,
+.location-input,
+.skills-input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 1px solid #dee2e6;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
 .about-textarea {
-  width: 100%;
-  padding: 0.75rem 1rem;
-  border: 1px solid #dee2e6;
-  border-radius: 8px;
-  font-size: 1rem;
-  font-family: inherit;
   resize: vertical;
-  transition: all 0.3s ease;
 }
 
-.about-textarea:focus {
-  outline: none;
-  border-color: #007bff;
-  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1);
-}
-
-.about-textarea::placeholder {
-  color: #6c757d;
-  font-style: italic;
-}
-
-.location-input {
-  width: 100%;
-  padding: 0.75rem 1rem;
-  border: 1px solid #dee2e6;
-  border-radius: 8px;
-  font-size: 1rem;
-  transition: all 0.3s ease;
-}
-
-.location-input:focus {
+.about-textarea:focus,
+.location-input:focus,
+.skills-input:focus {
   outline: none;
   border-color: #007bff;
   box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1);
@@ -151,21 +137,6 @@
   margin-bottom: 1rem;
 }
 
-.skills-input {
-  flex: 1;
-  padding: 0.75rem 1rem;
-  border: 1px solid #dee2e6;
-  border-radius: 8px;
-  font-size: 1rem;
-  transition: all 0.3s ease;
-}
-
-.skills-input:focus {
-  outline: none;
-  border-color: #007bff;
-  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1);
-}
-
 .add-skill-btn {
   padding: 0.75rem 1.5rem;
   background: linear-gradient(135deg, #007bff, #0056b3);
@@ -175,7 +146,6 @@
   font-weight: 600;
   cursor: pointer;
   transition: all 0.3s ease;
-  white-space: nowrap;
 }
 
 .add-skill-btn:hover:not(:disabled) {
@@ -205,12 +175,10 @@
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  transition: all 0.3s ease;
 }
 
 .skill-tag:hover {
   background: #bbdefb;
-  transform: translateY(-1px);
 }
 
 .remove-skill {
@@ -226,7 +194,6 @@
   align-items: center;
   justify-content: center;
   border-radius: 50%;
-  transition: all 0.2s ease;
 }
 
 .remove-skill:hover {
@@ -274,13 +241,6 @@ html.dark .skills-card {
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
 }
 
-html.dark .about-card:hover,
-html.dark .location-card:hover,
-html.dark .skills-card:hover {
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
-  border-color: #007bff;
-}
-
 html.dark .section-title {
   color: #f1f5f9;
   border-bottom: 2px solid #007bff;
@@ -300,20 +260,8 @@ html.dark .skills-input::placeholder {
   color: #64748b;
 }
 
-html.dark .about-textarea:focus,
-html.dark .location-input:focus,
-html.dark .skills-input:focus {
-  border-color: #007bff;
-  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.2);
-  background: #1e293b;
-}
-
 html.dark .add-skill-btn {
   background: linear-gradient(135deg, #007bff, #0056b3);
-}
-
-html.dark .add-skill-btn:hover:not(:disabled) {
-  background: linear-gradient(135deg, #0056b3, #004085);
 }
 
 html.dark .skill-tag {
