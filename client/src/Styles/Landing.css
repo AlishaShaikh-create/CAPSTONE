@@ -886,3 +886,151 @@ html {
     height: 50px;
   }
 }
+
+
+/* ========================================
+   LIGHT MODE (Default)
+   ======================================== */
+.landing-page {
+  background: #f8fafc;
+  color: #1e293b;
+}
+
+.landing-navbar {
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.landing-hero {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+}
+
+.landing-btn-primary {
+  background: #4f46e5;
+  color: white;
+}
+
+.landing-btn-primary:hover {
+  background: #4338ca;
+}
+
+.landing-feature-card {
+  background: white;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.landing-benefits {
+  background: #f1f5f9;
+}
+
+/* ========================================
+   DARK MODE – Individual Page Overrides
+   ======================================== */
+html.dark .landing-page {
+  background: #0f172a;
+  color: #e2e8f0;
+}
+
+html.dark .landing-navbar {
+  background: rgba(15, 23, 42, 0.95);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  border-bottom: 1px solid #1e293b;
+}
+
+html.dark .landing-hero {
+  background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+}
+
+html.dark .landing-hero-title,
+html.dark .landing-hero-subtitle,
+html.dark .landing-hero-description {
+  color: #f1f5f9;
+}
+
+html.dark .landing-btn-primary {
+  background: #6366f1;
+  color: white;
+}
+
+html.dark .landing-btn-primary:hover {
+  background: #4f46e5;
+}
+
+html.dark .landing-btn-secondary {
+  color: #cbd5e1;
+  border: 1px solid #475569;
+}
+
+html.dark .landing-btn-secondary:hover {
+  background: #1e293b;
+  color: white;
+}
+
+html.dark .landing-feature-card {
+  background: #1e293b;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+  border: 1px solid #334155;
+}
+
+html.dark .landing-feature-title,
+html.dark .landing-feature-description {
+  color: #cbd5e1;
+}
+
+html.dark .landing-benefits {
+  background: #1e293b;
+}
+
+html.dark .benefit-item {
+  background: #334155;
+  color: #e2e8f0;
+}
+
+html.dark .landing-cta {
+  background: #1e293b;
+}
+
+html.dark .landing-footer {
+  background: #0f172a;
+  border-top: 1px solid #334155;
+}
+
+html.dark .landing-footer a {
+  color: #94a3b8;
+}
+
+html.dark .landing-footer a:hover {
+  color: #cbd5e1;
+}
+
+/* Wave in dark mode */
+html.dark .wave-path {
+  fill: #1e293b;
+}
+
+
+/* In Landing.css */
+.theme-toggle-btn {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.theme-toggle-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  transform: rotate(20deg);
+}
+
+html.dark .theme-toggle-btn:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
